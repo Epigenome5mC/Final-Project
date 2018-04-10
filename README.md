@@ -22,7 +22,21 @@ Creating your directory
 baseDir <- file.path("~/Desktop/HypNorEPIC")
 ```
 
-Creating RGset data set.
+You should create a SampleSheet, which explains the way the data is organized. This is extremely important. For my data, it was organized the following way:
+
+| Sample_Name | Well_Position | Sentrix_Position | Sentrix_ID | Complete_Barcode |
+| --- | --- | --- | --- | --- |
+| MCF10A N 2d | A01 | _R01C01 | 201172520042 | 201172520042_R01C01|
+| MCF10A H 0.5% 2d | B01 | _R02C01 | 201172520042 | 201172520042_R02C01 |
+| 68 N 2d |	C01 |	_R03C01 |	201172520042 |	201172520042_R03C01 |
+| 68 H 4% 2d |	D01 |	_R04C01 |	201172520042 |	201172520042_R04C01 |
+| 68 H 0.5% 2d |	E01 |	_R05C01 |	201172520042 |	201172520042_R05C01 |
+| 68 N 8 wk |	F01 |	_R06C01 |	201172520042 |	201172520042_R06C01 |
+| 68 N 3d |	G01 |	_R07C01 |	201172520042 |	201172520042_R07C01 |
+| 68 H 4% 8wk |	H01 |	_R08C01 |	201172520042 |	201172520042_R08C01 |
+
+
+Creating the Basement, which will eventually create the RGset data set.
 
 ```
 targets2 <- read.csv(file.path(baseDir, "SampleSheet.csv"), stringsAsFactors = FALSE)
