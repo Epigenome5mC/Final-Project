@@ -36,7 +36,9 @@ You should create a SampleSheet, which explains the way the data is organized. T
 | 68 H 4% 8wk |	H01 |	_R08C01 |	201172520042 |	201172520042_R08C01 |
 
 
-Creating the Basement, which will eventually create the RGset data set.
+Creating the Basement, which will eventually create the RGset data set. 
+The Basename column is important because the column you make will contain the paths for each .idat file. You cannot generate this on your own through excel. You must run the code below to generate it. Make sure that where the .idat files are, you put them in a folder called by /organized by their 
+Sentrix_ID (for example: 201172520042).
 
 ```
 targets2 <- read.csv(file.path(baseDir, "SampleSheet.csv"), stringsAsFactors = FALSE)
