@@ -22,7 +22,7 @@ Creating your directory
 baseDir <- file.path("~/Desktop/HypNorEPIC")
 ```
 
-You should create a SampleSheet, which explains the way the data is organized. This is extremely important. For my data, it was organized the following way:
+You should create a SampleSheet, which explains the way the data is organized. This is extremely important. I made mine like below and saved it as a .csv file. For my data, it was organized the following way:
 
 | Sample_Name | Well_Position | Sentrix_Position | Sentrix_ID | Complete_Barcode |
 | --- | --- | --- | --- | --- |
@@ -44,3 +44,37 @@ targets2$Basename <- file.path(baseDir, targets2$Sentrix_ID, paste0(targets2$Sen
 targets <- targets2
 RGset <- read.metharray.exp(targets = targets)
 ```
+
+Checking things look ok.
+
+```
+pd <- pData(RGset)
+pd[,1:4]
+```
+
+Set up the annotation of the data.
+
+```
+RGset@annotation=c(array='IlluminaHumanMethylationEPIC', annotation='ilm10b2.hg19')
+```
+
+This will give you a PDF containing Quality Control data:
+
+```
+qcReport(RGset, sampNames = pd$Sample_Name, sampGroups = pd$Well_Position, pdf = "qcReport.pdf")
+```
+
+Processing the data (normalizing):
+
+```
+MSet.raw <- preprocessRaw(RGset)
+MSet.norm <- preprocessNoob(RGset, offset = 15, dyeCorr = TRUE, verbose = TRUE, dyeMethod=c("single", "reference"))
+```
+
+Creating a mdsPlot:
+
+```
+mdsPlot(MSet.norm, numPositions = 1000, sampGroups = pd$Well_Position, sampNames = pd$Sample_Name)
+```
+
+
