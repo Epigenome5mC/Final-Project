@@ -55,7 +55,7 @@ I highly suggest you create a SampleSheet, which explains the way the data is or
 targets <- read.metharray.sheet(baseDir)
 
 ```
-####This will help you see if the Basement has been created.
+#### This will help you see if the Basement has been created.
 ```
 sub(baseDir, "", targets$Basename)
 ```
@@ -70,7 +70,7 @@ targets2$Basename <- file.path(baseDir, targets2$Sentrix_ID, paste0(targets2$Sen
 targets <- targets2
 ```
 
-###6. Reading the data.
+### 6. Reading the data.
 ```
 RGset <- read.metharray.exp(targets = targets)
 ```
