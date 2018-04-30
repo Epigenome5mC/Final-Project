@@ -25,7 +25,7 @@ biocLite('minfidata')
 
 ### 3. Creating your directory.
 
-#### By using your own data. With this command, you can add a path directly from your computer.
+#### This is for your own data. With this command, you can add a path directly from your computer.
 ```
 baseDir <- file.path("~/Desktop/HypNorEPIC")
 ```
