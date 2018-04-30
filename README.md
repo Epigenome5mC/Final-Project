@@ -35,7 +35,9 @@ baseDir <- file.path("~/Desktop/HypNorEPIC")
 baseDir <- system.file("extdata", package = "minfiData")
 ```
 
-You should create a SampleSheet, which explains the way the data is organized. This is extremely important. I made mine like below and saved it as a .csv file. For my data, it was organized the following way:
+### 4. Setting up the SampleSheet. 
+
+I highly suggest you create a SampleSheet, which explains the way the data is organized. This is extremely important. If a sample sheet is not provided, you will not be able to proceed forward. I made mine like below and saved it as a .csv file. The following is an example from minfi's data, which I used to organize mine:
 
 | Sample_Name | Well_Position | Sentrix_Position | Sentrix_ID | Complete_Barcode |
 | --- | --- | --- | --- | --- |
@@ -48,17 +50,31 @@ You should create a SampleSheet, which explains the way the data is organized. T
 | 68 N 3d |	G01 |	_R07C01 |	201172520042 |	201172520042_R07C01 |
 | 68 H 4% 8wk |	H01 |	_R08C01 |	201172520042 |	201172520042_R08C01 |
 
+### 5. Setting up your data and the Basement.
+```
+targets <- read.metharray.sheet(baseDir)
 
-Creating the Basement, which will eventually create the RGset data set. 
-The Basename column is important because the column you make will contain the paths for each .idat file. You cannot generate this on your own through excel. You must run the code below to generate it. Make sure that where the .idat files are, you put them in a folder called by /organized by their 
+```
+####This will help you see if the Basement has been created.
+```
+sub(baseDir, "", targets$Basename)
+```
+
+#### This will create a Basement if you are unable to later. 
+This will help in createing the RGset data set. The Basename column is vital because the column you make will contain the paths for each .idat file. You cannot generate this on your own through excel. You must run the code below to generate it. Make sure that where the .idat files are, you put them in a folder called by /organized by their 
 Sentrix_ID (for example: 201172520042).
 
 ```
 targets2 <- read.csv(file.path(baseDir, "SampleSheet.csv"), stringsAsFactors = FALSE)
 targets2$Basename <- file.path(baseDir, targets2$Sentrix_ID, paste0(targets2$Sentrix_ID, targets2$Sentrix_Position))
 targets <- targets2
+```
+
+###6. Reading the data.
+```
 RGset <- read.metharray.exp(targets = targets)
 ```
+
 
 Checking things look ok.
 
