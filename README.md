@@ -108,7 +108,7 @@ controlStripPlot(RGset, controls="BISULFITE CONVERSION II", sampNames = pd$Sampl
 MSet.raw <- preprocessRaw(RGset)
 ```
 
-##### Normalizing with ssNoob (for EPIC data)
+##### Normalizing with ssNoob (for EPIC data).
 ```
 MSet.norm <- preprocessNoob(RGset, offset = 15, dyeCorr = TRUE, verbose = TRUE, dyeMethod=c("single", "reference"))
 ```
@@ -125,7 +125,7 @@ mdsPlot(MSet.norm, numPositions = 1000, sampGroups = pd$Sample_Group, sampNames 
 ```
 
 ### 10. Finding differentially methylated positions (DMPs)
-We will create a 20,000 CpG subset of our dataset to speed up the demo:
+This will create a 20,000 CpG subset of our dataset to speed up the demo:
 mset <- MSet.norm[1:20000,]
 
 ##### This will load how many groups you decided to look at.
@@ -133,7 +133,7 @@ mset <- MSet.norm[1:20000,]
 table(pd$Sample_Group)
 ```
 
-##### Settig up data for finding DMPs
+##### Settig up data for finding DMPs.
 ```
 M <- getM(mset, type = "beta", betaThreshold = 0.001)
 dmp <- dmpFinder(M, pheno=pd$Sample_Group, type="categorical")
