@@ -16,7 +16,13 @@ biocLite("IlluminaHumanMethylationEPICmanifest")
 biocLite("IlluminaHumanMethylationEPICanno.ilm10b2.hg19")
 require(minfi)
 ```
-## 2. Due to our data not being published, I have provided practice data which you can use in order to practice the following steps. I have also provided the data for veiwing purposes within the 
+## 2. Due to our data not being published, I have provided practice data which you can use in order to practice the following steps. I have also provided the data for veiwing purposes within this repository, so feel free to download it.
+
+```
+biocLite('minfidata')
+
+```
+
 Creating your directory
 
 ```
