@@ -142,6 +142,7 @@ par(mfrow=c(2,2))
 plotCpg(mset, cpg=cpgs, pheno=pd$Sample_Group)
 ```
 
+### Uploading data with Shiny.
 
 
 
