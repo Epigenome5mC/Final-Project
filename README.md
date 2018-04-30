@@ -115,30 +115,34 @@ MSet.norm <- preprocessNoob(RGset, offset = 15, dyeCorr = TRUE, verbose = TRUE, 
 
 ##### Normalizing with SWAN for 450K and the minfidata.
 ```
-MSet.norm2 <- preprocessSWAN(RGset)
+MSet.norm <- preprocessSWAN(RGset)
 ```
 
 
-### 8. Creating a MDS plot
+### 9. Creating a MDS plot with top 1,000 positions.
 ```
 mdsPlot(MSet.norm, numPositions = 1000, sampGroups = pd$Sample_Group, sampNames = pd$Sample_Name)
 ```
 
-### 9. Finding differentially methylated positions (DMPs)
+### 10. Finding differentially methylated positions (DMPs)
+We will create a 20,000 CpG subset of our dataset to speed up the demo:
+mset <- MSet.norm[1:20000,]
 
-
-Processing the data (normalizing):
-
+##### This will load how many groups you decided to look at.
 ```
-MSet.raw <- preprocessRaw(RGset)
-MSet.norm <- preprocessNoob(RGset, offset = 15, dyeCorr = TRUE, verbose = TRUE, dyeMethod=c("single", "reference"))
+table(pd$Sample_Group)
 ```
 
-Creating a mdsPlot:
+##### Settig up data for finding DMPs
+```
+M <- getM(mset, type = "beta", betaThreshold = 0.001)
+dmp <- dmpFinder(M, pheno=pd$Sample_Group, type="categorical")
+cpgs <- rownames(dmp)[1:4]
+par(mfrow=c(2,2))
+plotCpg(mset, cpg=cpgs, pheno=pd$Sample_Group)
+```
 
-```
-mdsPlot(MSet.norm, numPositions = 1000, sampGroups = pd$Well_Position, sampNames = pd$Sample_Name)
-```
+
 
 
 
