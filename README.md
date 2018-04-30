@@ -75,24 +75,30 @@ targets <- targets2
 RGset <- read.metharray.exp(targets = targets)
 ```
 
-
-Checking things look ok.
-
+#### Checking if annotation created.
 ```
-pd <- pData(RGset)
-pd[,1:4]
+RGset
 ```
-
-Set up the annotation of the data.
-
+#### If annotation not created, load:
 ```
 RGset@annotation=c(array='IlluminaHumanMethylationEPIC', annotation='ilm10b2.hg19')
 ```
-
-This will give you a PDF containing Quality Control data:
+### 7. PDF containing Quality Control data:
 
 ```
 qcReport(RGset, sampNames = pd$Sample_Name, sampGroups = pd$Well_Position, pdf = "qcReport.pdf")
+```
+
+#### In the event that you want this data separetaly, I have provided the code for each part:
+
+##### Beta density plots
+```
+densityPlot(RGset, sampGroups = pd$Sample_Group, main = "Beta", xlab = "Beta")
+```
+
+##### Beta beanplots
+```
+densityBeanPlot(RGset, sampGroups = pd$Sample_Group, sampNames = pd$Sample_Name)
 ```
 
 Processing the data (normalizing):
