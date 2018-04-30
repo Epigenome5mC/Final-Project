@@ -5,7 +5,7 @@ Final Project for TRGN510
 
 My project consists of looking into the DNA methylation patterns of various circulating tumoce cell (CTC) lines. I will be using data from my lab that was investigated by using an EPIC (850K) methylation array. This array interrogates about 850,000 CpG sites that focus on primarily promoters and enhancers. I will be comparing how the methylation patterns of all our CTC lines compare to each other. Our lines display various degrees of heterogeneity, but I am interested in identifying this same phenomenon in our lines. I will be using the R package called minfi, with the preprocessing steps of ssnoob (for EPIC data). My major goal for this project is to create a heat map of the top DMPs (differentially methylated probes).
 
-## 1. R programming steps
+## 1. The necessary packages and tools.
 
 This will load the required packages for this project.
 ```
