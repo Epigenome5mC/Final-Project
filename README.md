@@ -103,7 +103,7 @@ densityBeanPlot(RGset, sampGroups = pd$Sample_Group, sampNames = pd$Sample_Name)
 controlStripPlot(RGset, controls="BISULFITE CONVERSION II", sampNames = pd$Sample_Name)
 ```
 
-### 8. Normalizing the data
+### 8. Normalizing the data.
 ```
 MSet.raw <- preprocessRaw(RGset)
 ```
@@ -124,7 +124,7 @@ MSet.norm <- preprocessSWAN(RGset)
 mdsPlot(MSet.norm, numPositions = 1000, sampGroups = pd$Sample_Group, sampNames = pd$Sample_Name)
 ```
 
-### 10. Finding differentially methylated positions (DMPs)
+### 10. Finding differentially methylated positions (DMPs).
 This will create a 20,000 CpG subset of our dataset to speed up the demo:
 mset <- MSet.norm[1:20000,]
 
