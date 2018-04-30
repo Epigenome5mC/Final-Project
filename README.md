@@ -11,7 +11,6 @@ This will load the required packages for this project.
 ```
 source('http://bioconductor.org/biocLite.R')
 biocLite('minfi')
-biocLite('minfidata')
 biocLite("IlluminaHumanMethylationEPICmanifest")
 biocLite("IlluminaHumanMethylationEPICanno.ilm10b2.hg19")
 require(minfi)
@@ -20,7 +19,6 @@ require(minfi)
 
 ```
 biocLite('minfidata')
-
 ```
 
 ### 3. Creating your directory.
@@ -53,7 +51,6 @@ I highly suggest you create a SampleSheet, which explains the way the data is or
 ### 5. Setting up your data and the Basement.
 ```
 targets <- read.metharray.sheet(baseDir)
-
 ```
 #### This will help you see if the Basement has been created.
 ```
@@ -100,6 +97,35 @@ densityPlot(RGset, sampGroups = pd$Sample_Group, main = "Beta", xlab = "Beta")
 ```
 densityBeanPlot(RGset, sampGroups = pd$Sample_Group, sampNames = pd$Sample_Name)
 ```
+
+##### Beta stripplot - Control: BISULFITE CONVERSION
+```
+controlStripPlot(RGset, controls="BISULFITE CONVERSION II", sampNames = pd$Sample_Name)
+```
+
+### 8. Normalizing the data
+```
+MSet.raw <- preprocessRaw(RGset)
+```
+
+##### Normalizing with ssNoob (for EPIC data)
+```
+MSet.norm <- preprocessNoob(RGset, offset = 15, dyeCorr = TRUE, verbose = TRUE, dyeMethod=c("single", "reference"))
+```
+
+##### Normalizing with SWAN for 450K and the minfidata.
+```
+MSet.norm2 <- preprocessSWAN(RGset)
+```
+
+
+### 8. Creating a MDS plot
+```
+mdsPlot(MSet.norm, numPositions = 1000, sampGroups = pd$Sample_Group, sampNames = pd$Sample_Name)
+```
+
+### 9. Finding differentially methylated positions (DMPs)
+
 
 Processing the data (normalizing):
 
