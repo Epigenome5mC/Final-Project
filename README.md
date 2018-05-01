@@ -85,7 +85,7 @@ RGset@annotation=c(array='IlluminaHumanMethylationEPIC', annotation='ilm10b2.hg1
 qcReport(RGset, sampNames = pd$Sample_Name, sampGroups = pd$Well_Position, pdf = "qcReport.pdf")
 ```
 
-#### In the event that you want this data separetaly, I have provided the code for each part:
+#### In the event that you want this data separately, I have provided the code for each part:
 
 ##### Beta density plots
 ```
