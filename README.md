@@ -157,7 +157,7 @@ source("https://bioconductor.org/biocLite.R")
 biocLite("shinyMethyl")
 biocLite("minfi")
 ```
-Then run this on a shiny web app using R studio:
+Then run this on a R markdown using R studio:
 
 ```
 library(minfi)
