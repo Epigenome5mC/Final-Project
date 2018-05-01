@@ -25,7 +25,7 @@ biocLite('minfidata')
 
 #### This is for your own data. With this command, you can add a path directly from your computer.
 ```
-baseDir <- file.path("~/Desktop/HypNorEPIC")
+baseDir <- file.path("~/Desktop/CTCs_EPIC/")
 ```
 
 #### This will set up a directory for the minfi data for practice.
