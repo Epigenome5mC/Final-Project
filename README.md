@@ -80,7 +80,7 @@ RGset
 RGset@annotation=c(array='IlluminaHumanMethylationEPIC', annotation='ilm10b2.hg19')
 ```
 
-#### Preparing for PDF
+#### Preparing for PDF.
 ```
 pd <- pData(RGset)
 pd[,1:4]
