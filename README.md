@@ -142,7 +142,24 @@ par(mfrow=c(2,2))
 plotCpg(mset, cpg=cpgs, pheno=pd$Sample_Group)
 ```
 
-### Uploading data with Shiny.
+### 11. Uploading data with ShinyMethyl.
+Please make sure to run the following first:
+```
+source("https://bioconductor.org/biocLite.R")
+biocLite("shinyMethyl")
+biocLite("minfi")
+```
+Then run this on a shiny web app using R studio:
+
+```
+library(minfi)
+library(shinyMethyl)
+baseDir <- file.path("~/Desktop/CTCs_EPIC/")
+targets <- read.metharray.sheet(baseDir)
+RGset <- read.metharray.exp(targets = targets)
+summary <- shinySummarize(RGset)
+runShinyMethyl(summary)
+```
 
 
 
