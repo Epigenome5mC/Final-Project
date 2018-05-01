@@ -37,16 +37,15 @@ baseDir <- system.file("extdata", package = "minfiData")
 
 I highly suggest you create a SampleSheet, which explains the way the data is organized. This is extremely important. If a sample sheet is not provided, you will not be able to proceed forward. I made mine like below and saved it as a .csv file. The following is an example from minfi's data, which I used to organize mine:
 
-| Sample_Name | Well_Position | Sentrix_Position | Sentrix_ID | Complete_Barcode |
+| Sample_Name | Sample_Well | Sample_Group | Sentrix_ID | Sentrix_Position | 
 | --- | --- | --- | --- | --- |
-| MCF10A N 2d | A01 | _R01C01 | 201172520042 | 201172520042_R01C01|
-| MCF10A H 0.5% 2d | B01 | _R02C01 | 201172520042 | 201172520042_R02C01 |
-| 68 N 2d |	C01 |	_R03C01 |	201172520042 |	201172520042_R03C01 |
-| 68 H 4% 2d |	D01 |	_R04C01 |	201172520042 |	201172520042_R04C01 |
-| 68 H 0.5% 2d |	E01 |	_R05C01 |	201172520042 |	201172520042_R05C01 |
-| 68 N 8 wk |	F01 |	_R06C01 |	201172520042 |	201172520042_R06C01 |
-| 68 N 3d |	G01 |	_R07C01 |	201172520042 |	201172520042_R07C01 |
-| 68 H 4% 8wk |	H01 |	_R08C01 |	201172520042 |	201172520042_R08C01 |
+| GroupA_3 | H5 | GroupA | 5723646052 | R02C02 |
+| GroupA_2 | D5 | GroupA | 5723646052 | R04C01 |
+| GroupB_3 | C6 |	GroupB | 5723646052 |	R05C02 |
+| GroupB_1 | F7 |	GroupB | 5723646052 |	R04C02 |
+| GroupA_1 | G7 |	GroupA | 5723646052 |	R05C02 |
+| GroupB_2 | H7 |	GroupB | 5723646052 |	R06C02 |
+
 
 ### 5. Setting up your data and the Basement.
 ```
