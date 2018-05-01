@@ -132,7 +132,9 @@ mdsPlot(MSet.norm, numPositions = 1000, sampGroups = pd$Sample_Group, sampNames 
 
 ### 10. Finding differentially methylated positions (DMPs).
 This will create a 20,000 CpG subset of our dataset to speed up the demo:
+```
 mset <- MSet.norm[1:20000,]
+```
 
 ##### This will load how many groups you decided to look at.
 ```
